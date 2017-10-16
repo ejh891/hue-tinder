@@ -3,6 +3,7 @@ import Color from 'color';
 import FontAwesome from 'react-fontawesome';
 import classNames from 'classnames';
 import { Grid, Col, Row } from 'react-bootstrap';
+import SwipeableViews from 'react-swipeable-views';
 
 import { firebaseDatabase } from '../config/firebase';
 import './App.css';
@@ -17,12 +18,14 @@ class App extends Component {
     this.nope = this.nope.bind(this);
     this.yep = this.yep.bind(this);
     this.undo = this.undo.bind(this);
+    this.swiped = this.swiped.bind(this);
     this._updateDatabase = this._updateDatabase.bind(this);
 
     this.state = {
       prevAnswers: [],
       color: null,
       hueRepresentation: null,
+      swipeableIndex: 1,
     };
   }
 
@@ -43,6 +46,18 @@ class App extends Component {
 
     this.setState({ 
       color,
+    });
+  }
+
+  swiped(index, latestIndex) {
+    this.setState({ swipeableIndex: index}, () => {
+      if (index === 0) {
+        this.yep();
+      } else if (index === 2) {
+        this.nope();
+      }
+  
+      this.setState({ swipeableIndex: 1 });
     });
   }
 
@@ -140,12 +155,34 @@ class App extends Component {
           </Col>
         </Row>
         <Row>
-          <Col className="padding-0" xs={6}>
-            <div className="color-candidate" style={{backgroundColor: this.state.color.hex()}}></div>
-          </Col>
-          <Col className="padding-0" xs={6}>
-            <div className="color-candidate" style={{backgroundColor: this.getHueRepresentation()}}></div>
-          </Col>
+          <SwipeableViews
+            key={this.state.swipeableKey}
+            index={this.state.swipeableIndex}
+            onChangeIndex={this.swiped}
+          >
+            <div>
+              <Col className="padding-0" xs={12}>
+                <div className="color-candidate" style={{backgroundColor: "#04a34a"}}>
+                  <FontAwesome name="thumbs-up" size="4x" style={{paddingLeft: "35vw"}}/>
+                </div>
+              </Col>
+            </div>
+            <div>
+              <Col className="padding-0" xs={6}>
+                <div className="color-candidate" style={{backgroundColor: this.state.color.hex()}}></div>
+              </Col>
+              <Col className="padding-0" xs={6}>
+                <div className="color-candidate" style={{backgroundColor: this.getHueRepresentation()}}></div>
+              </Col>
+            </div>
+            <div>
+              <Col className="padding-0" xs={12}>
+                <div className="color-candidate" style={{backgroundColor: "#d35452"}}>
+                  <FontAwesome name="thumbs-down" size="4x" style={{paddingRight: "35vw"}} />
+                </div>
+              </Col>
+            </div>
+          </SwipeableViews>
         </Row>
         <Row>
           <Col className="padding-0" xs={6}>
@@ -156,6 +193,7 @@ class App extends Component {
           </Col>
         </Row>
       </Grid>
+
     );
   }
 }

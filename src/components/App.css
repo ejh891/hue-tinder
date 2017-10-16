@@ -2,6 +2,10 @@
   height: 70vh;
   width: 100%;
   border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 .action-button {
