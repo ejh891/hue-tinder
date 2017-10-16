@@ -3,8 +3,8 @@
 }
 
 .color-candidate {
-  min-width: 200px;
-  height: 80vh;
+  width: 50vh;
+  height: 60vh;
   border-radius: 4px;
 }
 
@@ -13,8 +13,8 @@
 }
 
 .action-button {
-  min-width: 200px;
-  height: 10vh;
+  width: 50vh;
+  height: 20vh;
   text-align: center;
   padding: 9px;
   border: none;
