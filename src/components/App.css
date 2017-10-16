@@ -1,0 +1,52 @@
+.color-container {
+  display: flex;
+}
+
+.color-candidate {
+  min-width: 200px;
+  height: 80vh;
+  border-radius: 4px;
+}
+
+.action-container {
+  display: flex;
+}
+
+.action-button {
+  min-width: 200px;
+  height: 10vh;
+  text-align: center;
+  padding: 9px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 12px;
+  color: white;
+  cursor: pointer;
+  transition: background-color .3s ease;
+}
+
+.nope {
+  background-color: #d35452;
+}
+
+.nope:hover {
+  background-color: #d86b69;
+}
+
+.yep {
+  background-color: #04a34a;
+}
+
+.yep:hover {
+  background-color: #05c257;
+}
+
+.undo {
+  background-color: #7fdbff;
+}
+
+.undo:hover {
+  background-color: #9ee4ff;
+}
