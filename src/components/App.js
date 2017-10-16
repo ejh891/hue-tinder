@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Color from 'color';
 import FontAwesome from 'react-fontawesome';
 import classNames from 'classnames';
+import { Grid, Col, Row } from 'react-bootstrap';
 
 import { firebaseDatabase } from '../config/firebase';
 import './App.css';
@@ -102,31 +103,59 @@ class App extends Component {
   render() {
     if (!this.state.color) {
       return (
-        <div>
-          <p>On the next screen you'll be presented with two colors side-by-side. On the left is random color, and on the right is another color with the same Hue.</p>
-          <strong>Your job is to answer the question: do these colors look similar?</strong>
-          <div>Hints:</div>
-          <ul>
-            <li>Most pairs will be similar, so don't worry if you find yourself tapping the green button a lot</li>
-            <li>There's an undo button</li>
-            <li>Keep an eye out for colors that are very close to black, white, or grey - those should often be "noped"</li>
-          </ul>
-          <button className={classNames("action-button", "begin")} onClick={this.getNewColor}>Get Started</button>
-        </div>
+        <Grid>
+          <Row>
+            <Col xs={12}>
+              <p>On the next screen you'll be presented with two colors side-by-side. On the left is random color, and on the right is another color with the same Hue.</p>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              <strong>Your job is to answer the question: do these colors look similar?</strong>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              <div>Hints:</div>
+              <ul>
+                <li>Most pairs will be similar, so don't worry if you find yourself tapping the green button a lot</li>
+                <li>There's an undo button</li>
+                <li>Keep an eye out for colors that are very close to black, white, or grey - those should often be "noped"</li>
+              </ul>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              <button className={classNames("action-button", "begin")} onClick={this.getNewColor}>Get Started</button>
+            </Col>
+          </Row>
+        </Grid>
       )
     }
     return (
-      <div>
-        <button className={classNames("action-button", "undo", {"disabled": this.state.prevAnswers.length === 0})} onClick={this.undo} disabled={this.state.prevAnswers.length === 0}><FontAwesome name="undo" size="2x" /></button>
-        <div className="color-container">
-          <div className="color-candidate" style={{backgroundColor: this.state.color.hex()}}></div>
-          <div className="color-candidate" style={{backgroundColor: this.getHueRepresentation()}}></div>
-        </div>
-        <div className="action-container">
-          <button className={classNames("action-button", "nope")} onClick={this.nope}><FontAwesome name="times" size="2x" /></button>
-          <button className={classNames("action-button", "yep")} onClick={this.yep}><FontAwesome name="check" size="2x" /></button>
-        </div>
-      </div>
+      <Grid>
+        <Row>
+          <Col className="padding-0" xs={6}>
+            <button className={classNames("action-button", "undo", {"disabled": this.state.prevAnswers.length === 0})} onClick={this.undo} disabled={this.state.prevAnswers.length === 0}><FontAwesome name="undo" size="2x" /></button>
+          </Col>
+        </Row>
+        <Row>
+          <Col className="padding-0" xs={6}>
+            <div className="color-candidate" style={{backgroundColor: this.state.color.hex()}}></div>
+          </Col>
+          <Col className="padding-0" xs={6}>
+            <div className="color-candidate" style={{backgroundColor: this.getHueRepresentation()}}></div>
+          </Col>
+        </Row>
+        <Row>
+          <Col className="padding-0" xs={6}>
+            <button className={classNames("action-button", "nope")} onClick={this.nope}><FontAwesome name="times" size="2x" /></button>
+          </Col>
+          <Col className="padding-0" xs={6}>
+            <button className={classNames("action-button", "yep")} onClick={this.yep}><FontAwesome name="check" size="2x" /></button>
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 }

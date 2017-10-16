@@ -1,20 +1,12 @@
-.color-container {
-  display: flex;
-}
-
 .color-candidate {
-  width: 50vh;
-  height: 60vh;
+  height: 70vh;
+  width: 100%;
   border-radius: 4px;
 }
 
-.action-container {
-  display: flex;
-}
-
 .action-button {
-  width: 50vh;
-  height: 20vh;
+  width: 100%;
+  height: 15vh;
   text-align: center;
   padding: 9px;
   border: none;
@@ -57,4 +49,9 @@
 
 .disabled:hover {
   background-color: #dddddd !important;
+}
+
+.padding-0{
+  padding-right:0;
+  padding-left:0;
 }
