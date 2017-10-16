@@ -43,10 +43,18 @@
   background-color: #05c257;
 }
 
-.undo {
+.undo, .begin {
   background-color: #7fdbff;
 }
 
-.undo:hover {
+.undo:hover, .begin:hover {
   background-color: #9ee4ff;
+}
+
+.disabled {
+  background-color: #cccccc !important;
+}
+
+.disabled:hover {
+  background-color: #dddddd !important;
 }

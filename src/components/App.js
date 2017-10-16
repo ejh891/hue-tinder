@@ -103,14 +103,21 @@ class App extends Component {
     if (!this.state.color) {
       return (
         <div>
-          <div>You'll be shown two colors side-by-side, if those colors are similar hit the check button, but if they're not - hit the nope button</div>
-          <button onClick={this.getNewColor}>Get Started</button>
+          <p>On the next screen you'll be presented with two colors side-by-side. On the left is random color, and on the right is another color with the same Hue.</p>
+          <strong>Your job is to answer the question: do these colors look similar?</strong>
+          <div>Hints:</div>
+          <ul>
+            <li>Most pairs will be similar, so don't worry if you find yourself tapping the green button a lot</li>
+            <li>There's an undo button</li>
+            <li>Keep an eye out for colors that are very close to black, white, or grey - those should often be "noped"</li>
+          </ul>
+          <button className={classNames("action-button", "begin")} onClick={this.getNewColor}>Get Started</button>
         </div>
       )
     }
     return (
       <div>
-        <button className={classNames("action-button", "undo")} onClick={this.undo} disabled={this.state.prevAnswers.length === 0}><FontAwesome name="undo" size="2x" /></button>
+        <button className={classNames("action-button", "undo", {"disabled": this.state.prevAnswers.length === 0})} onClick={this.undo} disabled={this.state.prevAnswers.length === 0}><FontAwesome name="undo" size="2x" /></button>
         <div className="color-container">
           <div className="color-candidate" style={{backgroundColor: this.state.color.hex()}}></div>
           <div className="color-candidate" style={{backgroundColor: this.getHueRepresentation()}}></div>
