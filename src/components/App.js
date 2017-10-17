@@ -188,13 +188,53 @@ class App extends Component {
               <Col className="padding-0" xs={6}>
                 <div className="color-candidate" style={{backgroundColor: this.state.color.hex()}}></div>
               </Col>
-              <Col className="padding-0" xs={6}>
+              <Col className="padding-0" xs={1}>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 40, l: 80 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 40, l: 70 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 40, l: 60 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 40, l: 50 }).hex()}}></div>
                 <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 40, l: 40 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 40, l: 30 }).hex()}}></div>
+              </Col>
+              <Col className="padding-0" xs={1}>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 50, l: 80 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 50, l: 70 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 50, l: 60 }).hex()}}></div>
                 <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 50, l: 50 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 50, l: 40 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 50, l: 30 }).hex()}}></div>
+              </Col>
+              <Col className="padding-0" xs={1}>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 60, l: 80 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 60, l: 70 }).hex()}}></div>
                 <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 60, l: 60 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 60, l: 50 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 60, l: 40 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 60, l: 30 }).hex()}}></div>
+              </Col>
+              <Col className="padding-0" xs={1}>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 70, l: 80 }).hex()}}></div>
                 <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 70, l: 70 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 70, l: 60 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 70, l: 50 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 70, l: 40 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 70, l: 30 }).hex()}}></div>
+              </Col>
+              <Col className="padding-0" xs={1}>
                 <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 80, l: 80 }).hex()}}></div>
-                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 90, l: 90 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 80, l: 70 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 80, l: 60 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 80, l: 50 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 80, l: 40 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 80, l: 30 }).hex()}}></div>
+              </Col>
+              <Col className="padding-0" xs={1}>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 90, l: 80 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 90, l: 70 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 90, l: 60 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 90, l: 50 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 90, l: 40 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 90, l: 30 }).hex()}}></div>
               </Col>
             </div>
             <div>

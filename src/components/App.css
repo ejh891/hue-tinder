@@ -1,7 +1,6 @@
 .color-candidate {
   height: 72vh;
   width: 100%;
-  border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +10,6 @@
 .hue-candidate {
   height: 12vh;
   width: 100%;
-  border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +23,6 @@
   padding: 9px;
   border: none;
   outline: none;
-  border-radius: 4px;
   font-size: 14px;
   line-height: 12px;
   color: white;
