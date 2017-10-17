@@ -18,6 +18,7 @@ class App extends Component {
     this.nope = this.nope.bind(this);
     this.yep = this.yep.bind(this);
     this.undo = this.undo.bind(this);
+    this.help = this.help.bind(this);
     this.swiped = this.swiped.bind(this);
     this._updateDatabase = this._updateDatabase.bind(this);
 
@@ -100,7 +101,10 @@ class App extends Component {
         color: prevAnswer.color
       }
     });
+  }
 
+  help() {
+    this.setState({ color: null });
   }
 
   _updateDatabase({ color, yepsToAdd = 0, nopesToAdd = 0 }) {
@@ -120,28 +124,38 @@ class App extends Component {
       return (
         <Grid>
           <Row>
+            <Col xs={12} className="info">
+              <h3 style={{color: "white"}}>Color Theme Tinder</h3>
+            </Col>
+          </Row>
+          <Row style={{marginTop: "10px"}}>
             <Col xs={12}>
-              <p>On the next screen you'll be presented with two colors side-by-side. On the left is random color, and on the right is another color with the same Hue.</p>
+              <p>Does the big color on the left side match with the color palette on the right side?</p>
+              <p>Examples:</p>
             </Col>
           </Row>
           <Row>
-            <Col xs={12}>
-              <strong>Your job is to answer the question: do these colors look similar?</strong>
+            <Col xs={6}>
+              <div style={{textAlign: "center"}}>
+                <FontAwesome name="check" style={{fontSize: "40px", color: "#04a34a"}} />
+                <img className="sample-image" src="https://i.imgur.com/8f1zKnD.png?1" alt="Yep sample" />
+              </div>
+            </Col>
+            <Col xs={6}>
+              <div style={{textAlign: "center"}}>
+                <FontAwesome name="times" style={{fontSize: "40px", color: "#d35452"}} />
+                <img className="sample-image" src="https://i.imgur.com/mPZi3o4.png?1" alt="Nope sample" />
+              </div>
             </Col>
           </Row>
-          <Row>
+          <Row style={{marginTop: "10px"}}>
             <Col xs={12}>
-              <div>Hints:</div>
-              <ul>
-                <li>Most pairs will be similar, so don't worry if you find yourself tapping the green button a lot</li>
-                <li>There's an undo button</li>
-                <li>Keep an eye out for colors that are very close to black, white, or grey - those should often be "noped"</li>
-              </ul>
+              <p>Hint: Watch out for black, white, and gray colors; those are usually "nopes"</p>
             </Col>
           </Row>
-          <Row>
+          <Row style={{marginTop: "10px"}}>
             <Col xs={12}>
-              <button className={classNames("action-button", "begin")} onClick={this.getNewColor}>Get Started</button>
+              <button className={classNames("action-button", "info")} onClick={this.getNewColor}>Get Started</button>
             </Col>
           </Row>
         </Grid>
@@ -151,7 +165,10 @@ class App extends Component {
       <Grid>
         <Row>
           <Col className="padding-0" xs={6}>
-            <button className={classNames("action-button", "undo", {"disabled": this.state.prevAnswers.length === 0})} onClick={this.undo} disabled={this.state.prevAnswers.length === 0}><FontAwesome name="undo" size="2x" /></button>
+            <button className={classNames("action-button", "info", {"disabled": this.state.prevAnswers.length === 0})} onClick={this.undo} disabled={this.state.prevAnswers.length === 0}><FontAwesome name="undo" size="2x" /></button>
+          </Col>
+          <Col className="padding-0" xs={6}>
+            <button className={classNames("action-button", "info")} onClick={this.help}><FontAwesome name="question-circle" size="2x" /></button>
           </Col>
         </Row>
         <Row>
@@ -172,7 +189,12 @@ class App extends Component {
                 <div className="color-candidate" style={{backgroundColor: this.state.color.hex()}}></div>
               </Col>
               <Col className="padding-0" xs={6}>
-                <div className="color-candidate" style={{backgroundColor: this.getHueRepresentation()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 40, l: 40 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 50, l: 50 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 60, l: 60 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 70, l: 70 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 80, l: 80 }).hex()}}></div>
+                <div className="hue-candidate" style={{backgroundColor: Color({h: this.state.color.hue(), s: 90, l: 90 }).hex()}}></div>
               </Col>
             </div>
             <div>
@@ -186,10 +208,10 @@ class App extends Component {
         </Row>
         <Row>
           <Col className="padding-0" xs={6}>
-            <button className={classNames("action-button", "nope")} onClick={this.nope}><FontAwesome name="times" size="2x" /></button>
+            <button className={classNames("action-button", "danger")} onClick={this.nope}><FontAwesome name="times" size="2x" /></button>
           </Col>
           <Col className="padding-0" xs={6}>
-            <button className={classNames("action-button", "yep")} onClick={this.yep}><FontAwesome name="check" size="2x" /></button>
+            <button className={classNames("action-button", "success")} onClick={this.yep}><FontAwesome name="check" size="2x" /></button>
           </Col>
         </Row>
       </Grid>

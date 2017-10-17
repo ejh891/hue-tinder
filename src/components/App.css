@@ -1,5 +1,15 @@
 .color-candidate {
-  height: 70vh;
+  height: 72vh;
+  width: 100%;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.hue-candidate {
+  height: 12vh;
   width: 100%;
   border-radius: 4px;
   display: flex;
@@ -10,7 +20,7 @@
 
 .action-button {
   width: 100%;
-  height: 15vh;
+  height: 14vh;
   text-align: center;
   padding: 9px;
   border: none;
@@ -23,27 +33,27 @@
   transition: background-color .3s ease;
 }
 
-.nope {
+.danger {
   background-color: #d35452;
 }
 
-.nope:hover {
+.danger:hover {
   background-color: #d86b69;
 }
 
-.yep {
+.success {
   background-color: #04a34a;
 }
 
-.yep:hover {
+.success:hover {
   background-color: #05c257;
 }
 
-.undo, .begin {
+.info {
   background-color: #7fdbff;
 }
 
-.undo:hover, .begin:hover {
+.info:hover {
   background-color: #9ee4ff;
 }
 
@@ -58,4 +68,8 @@
 .padding-0{
   padding-right:0;
   padding-left:0;
+}
+
+.sample-image {
+  max-width: 100%;
 }
